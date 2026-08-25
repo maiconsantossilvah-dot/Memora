@@ -15,7 +15,7 @@ Abra o endereço exibido no terminal. Para validar a versão de produção:
 
 ```bash
 npm run build
-npm run start
+npm run preview
 ```
 
 ## Configurar o Firebase
@@ -98,4 +98,10 @@ As chamadas do Firebase ficam fora dos componentes. O formulário de nota é com
 npm run build
 ```
 
-O projeto usa React, TypeScript, Vite/Vinext, CSS próprio, Firebase Web SDK e date-fns. Não há dependências de estado global nem bibliotecas visuais adicionais.
+O projeto usa React, TypeScript, Vite, CSS próprio, Firebase Web SDK e date-fns. Não há dependências de estado global nem bibliotecas visuais adicionais.
+
+## GitHub Pages
+
+O arquivo `index.html` na raiz inicia a aplicação pelo Vite. O build usa caminhos relativos (`base: './'`), portanto funciona tanto na raiz quanto em um subdiretório do GitHub Pages.
+
+O workflow `.github/workflows/deploy-pages.yml` publica automaticamente a pasta `dist` a cada push na branch `main`. No GitHub, abra **Settings → Pages** e escolha **GitHub Actions** como fonte. Depois faça push do commit; o endereço publicado aparecerá na execução do workflow.
