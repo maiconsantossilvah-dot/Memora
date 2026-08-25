@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL('https://memora-notas.maiconsantossilvah.chatgpt.site'),
   title: 'Memora — suas anotações, do seu jeito',
   description: 'Organize anotações, imagens, tags e compromissos em um espaço pessoal.',
   openGraph: {
