@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
+import { X } from 'lucide-react';
 
 interface ModalProps {
   open: boolean;
@@ -39,7 +40,7 @@ export function Modal({ open, onClose, title, eyebrow, children, size = 'medium'
       <div ref={panelRef} className={`modal-panel modal-${size}`} role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div className="modal-header">
           <div>{eyebrow && <p className="eyebrow">{eyebrow}</p>}<h2 id="modal-title">{title}</h2></div>
-          <button className="icon-button" type="button" onClick={onClose} aria-label="Fechar modal">×</button>
+          <button className="icon-button" type="button" onClick={onClose} aria-label="Fechar modal"><X size={18} aria-hidden="true" /></button>
         </div>
         {children}
       </div>

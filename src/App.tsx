@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Moon, Settings, Sun } from 'lucide-react';
 import { Sidebar, type Page } from './components/Sidebar';
 import { FirebaseConfigModal } from './components/FirebaseConfigModal';
 import { NoteForm, type NoteFormSubmission } from './components/NoteForm';
@@ -142,7 +143,7 @@ export default function App() {
     <main className="app-shell">
       <Sidebar page={page} onPageChange={setPage} connection={connection} onConfigure={() => setConfigOpen(true)} />
       <section className="workspace">
-        <header className="topbar"><div className="mobile-brand"><span className="brand-mark">m</span>memora</div><div className="topbar-actions"><button className="icon-button" onClick={toggleTheme} aria-label={theme === 'light' ? 'Ativar tema escuro' : 'Ativar tema claro'}>{theme === 'light' ? '☾' : '☼'}</button><button className="config-button" onClick={() => setConfigOpen(true)} aria-label="Configurar Firebase">⚙ <span>Configurar Firebase</span></button></div></header>
+        <header className="topbar"><div className="mobile-brand"><span className="brand-mark">m</span>memora</div><div className="topbar-actions"><button className="icon-button" onClick={toggleTheme} aria-label={theme === 'light' ? 'Ativar tema escuro' : 'Ativar tema claro'}>{theme === 'light' ? <Moon size={17} aria-hidden="true" /> : <Sun size={17} aria-hidden="true" />}</button><button className="config-button" onClick={() => setConfigOpen(true)} aria-label="Configurar Firebase"><Settings size={16} aria-hidden="true" /><span>Configurar Firebase</span></button></div></header>
         <div className="content">
           {page === 'notes' && <NotesPage notes={notes} loading={loading} connection={connection} selectedTag={selectedTag} onSelectedTagChange={setSelectedTag} onOpen={setDetails} onCreate={startCreate} onConfigure={() => setConfigOpen(true)} />}
           {page === 'calendar' && <CalendarPage notes={notes} onOpen={setDetails} />}
